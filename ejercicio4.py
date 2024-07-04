@@ -70,18 +70,11 @@ lista_campañas = [
         'tasa_conversion': 0.04
     }
 ]
-'''
-### Ejercicio 1:
+'''### Ejercicio 4:
 ### Descripción del ejercicio:
-Lo primero que nos piden es que veamos el nombre de cada campaña, 
-su presupuesto, el número de personas alcanzadas y su tasa de conversión.
+Nos piden que calculemos el gasto total de todas las campañas del año pasado:
 '''
-elementos = ['nombre','presupuesto','personas_alcanzadas','tasa_conversion']
-
+gasto_total = 0
 for campaña in lista_campañas:
-    for elemento in campaña:
-        if elemento in elementos:
-            print(f'{elemento}: {campaña[elemento]}')
-            if elemento == 'tasa_conversion':
-                print("\n")
-
+    gasto_total += campaña['presupuesto']
+print(f'El gasto total fue: {gasto_total}')

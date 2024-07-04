@@ -71,17 +71,13 @@ lista_campañas = [
     }
 ]
 '''
-### Ejercicio 1:
+### Ejercicio 5:
 ### Descripción del ejercicio:
-Lo primero que nos piden es que veamos el nombre de cada campaña, 
-su presupuesto, el número de personas alcanzadas y su tasa de conversión.
+Se nos pide calcular las conversiones de cada campaña multiplicando 
+el número de personas alcanzadas por la tasa de conversión y luego imprimir 
+el nombre de cada campaña junto con el número de conversiones.
 '''
-elementos = ['nombre','presupuesto','personas_alcanzadas','tasa_conversion']
-
 for campaña in lista_campañas:
-    for elemento in campaña:
-        if elemento in elementos:
-            print(f'{elemento}: {campaña[elemento]}')
-            if elemento == 'tasa_conversion':
-                print("\n")
-
+    campaña['conversiones']=int(campaña['personas_alcanzadas']*campaña['tasa_conversion'])
+print ([f"La tasa de conversiones en la campaña: {campaña['nombre']} fue {campaña['conversiones']}"for campaña in lista_campañas ])
+print(lista_campañas)

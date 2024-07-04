@@ -70,18 +70,3 @@ lista_campañas = [
         'tasa_conversion': 0.04
     }
 ]
-'''
-### Ejercicio 1:
-### Descripción del ejercicio:
-Lo primero que nos piden es que veamos el nombre de cada campaña, 
-su presupuesto, el número de personas alcanzadas y su tasa de conversión.
-'''
-elementos = ['nombre','presupuesto','personas_alcanzadas','tasa_conversion']
-
-for campaña in lista_campañas:
-    for elemento in campaña:
-        if elemento in elementos:
-            print(f'{elemento}: {campaña[elemento]}')
-            if elemento == 'tasa_conversion':
-                print("\n")
-

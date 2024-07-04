@@ -70,18 +70,14 @@ lista_campañas = [
         'tasa_conversion': 0.04
     }
 ]
+
 '''
-### Ejercicio 1:
+### Ejercicio 7:
 ### Descripción del ejercicio:
-Lo primero que nos piden es que veamos el nombre de cada campaña, 
-su presupuesto, el número de personas alcanzadas y su tasa de conversión.
+Queremos identificar las campañas que tienen una tasa de conversión superior a 0.03 y un presupuesto inferior a 30000.
 '''
-elementos = ['nombre','presupuesto','personas_alcanzadas','tasa_conversion']
-
+campañas_seleccionadas = []
 for campaña in lista_campañas:
-    for elemento in campaña:
-        if elemento in elementos:
-            print(f'{elemento}: {campaña[elemento]}')
-            if elemento == 'tasa_conversion':
-                print("\n")
-
+    if campaña['tasa_conversion'] > 0.03 and campaña ['presupuesto'] < 30000:
+        campañas_seleccionadas.append((campaña['nombre'],campaña['tasa_conversion'],campaña['presupuesto']))
+print(f'Las campañas seleccionadas son: {campañas_seleccionadas}')

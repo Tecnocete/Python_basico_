@@ -71,17 +71,19 @@ lista_campañas = [
     }
 ]
 '''
-### Ejercicio 1:
+### Ejercicio 6:
 ### Descripción del ejercicio:
-Lo primero que nos piden es que veamos el nombre de cada campaña, 
-su presupuesto, el número de personas alcanzadas y su tasa de conversión.
+Nos piden que busquemos las campañas con mayor tasa de conversión
 '''
-elementos = ['nombre','presupuesto','personas_alcanzadas','tasa_conversion']
-
-for campaña in lista_campañas:
-    for elemento in campaña:
-        if elemento in elementos:
-            print(f'{elemento}: {campaña[elemento]}')
-            if elemento == 'tasa_conversion':
-                print("\n")
-
+mayor_tasa_conversion = 0
+indice= 0
+while indice < len(lista_campañas):
+    tasa_actual = lista_campañas[indice]['tasa_conversion']
+    if tasa_actual > mayor_tasa_conversion:
+        mayor_tasa_conversion = tasa_actual
+        campaña_buscada = [lista_campañas[indice]['nombre']]
+    elif tasa_actual == mayor_tasa_conversion:
+        campaña_buscada.append(lista_campañas[indice]['nombre'])
+    indice += 1
+print (f'La mayor tasa de conversion fue: {mayor_tasa_conversion} en la campaña{campaña_buscada}')
+print(lista_campañas)

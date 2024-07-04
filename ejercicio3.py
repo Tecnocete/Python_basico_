@@ -70,18 +70,19 @@ lista_campañas = [
         'tasa_conversion': 0.04
     }
 ]
+
 '''
-### Ejercicio 1:
+### Ejercicio 3:
 ### Descripción del ejercicio:
-Lo primero que nos piden es que veamos el nombre de cada campaña, 
-su presupuesto, el número de personas alcanzadas y su tasa de conversión.
+Nos piden que averiguemos cual es el medio más utilizado
 '''
-elementos = ['nombre','presupuesto','personas_alcanzadas','tasa_conversion']
-
+conteo_medios =  {}
 for campaña in lista_campañas:
-    for elemento in campaña:
-        if elemento in elementos:
-            print(f'{elemento}: {campaña[elemento]}')
-            if elemento == 'tasa_conversion':
-                print("\n")
-
+    for medio in campaña['medios']:
+        if medio in conteo_medios:
+            conteo_medios[medio] +=1
+        else:
+            conteo_medios[medio] = 1
+medio_mas_usado= max(conteo_medios)
+print(conteo_medios)
+print(f'EL medio más usado es : {medio_mas_usado}')
