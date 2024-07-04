@@ -33,4 +33,5 @@ while True:
             print("No coinciden las contraseñas, vuelva a introducir la contraseña de nuevo") 
             contraseña 
     else:
+        print("La contraseña debe contener al menos una minuscula una mayuscula y un digito")
         contraseña       
