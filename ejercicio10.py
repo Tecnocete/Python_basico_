@@ -71,15 +71,29 @@ lista_campañas = [
     }
 ]
 
-'''
-### Ejercicio 8:
+# Nuevo diccionario de campaña
+nueva_campaña = {
+    'nombre': 'Oferta de Verano',
+    'presupuesto': 0,
+    'inicio': '2024-06-01',
+    'fin': '2024-08-31',
+    'medios': ['Redes Sociales', 'Publicidad en línea'],
+    'segmentos_objetivo': ['Familias', 'Jóvenes'],
+    'personas_alcanzadas': "0",   
+}
+
+lista_campañas.append(nueva_campaña)
+
+'''### Ejercicio 10:
 ### Descripción del ejercicio:
-Nos piden calcular la duración en días de cada campaña publicitaria del año pasado:
+Queremos imprimir la tasa de conversión de cada campaña en nuestra lista de campañas. 
+Sin embargo, es posible que algunas campañas no tengan la tasa de conversión registrada.
 '''
-from datetime import datetime
+
 for campaña in lista_campañas:
-    fecha_inicio = datetime.strptime(campaña['inicio'], '%Y-%m-%d')
-    fecha_fin = datetime.strptime(campaña['fin'], '%Y-%m-%d')
-    campaña['duracion_dias'] = (fecha_fin - fecha_inicio).days
-    print (f"La campaña : {campaña['nombre']} duró  {campaña['duracion_dias']} días")
-    
+    try:
+        campaña['tasa_conversion']
+        print(f"La tasa de conversion de la campaña {campaña['nombre']}:  fue de {campaña['tasa_conversion']}")
+    except KeyError:
+        print(f"En la campaña {campaña['nombre']} no existe la tasa de conversión")
+        

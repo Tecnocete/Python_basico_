@@ -70,3 +70,20 @@ lista_campañas = [
         'tasa_conversion': 0.04
     }
 ]
+'''
+### Ejercicio 9:
+### Descripción del ejercicio:
+Estamos buscando la campaña más larga dentro de nuestra lista de campañas publicitarias:
+'''
+from datetime import datetime
+for campaña in lista_campañas:
+    fecha_inicio = datetime.strptime(campaña['inicio'], '%Y-%m-%d')
+    fecha_fin = datetime.strptime(campaña['fin'], '%Y-%m-%d')
+    campaña['duracion_dias'] = (fecha_fin - fecha_inicio).days
+
+campaña_mas_larga= ("", 0)
+
+for campaña in lista_campañas:
+    if campaña['duracion_dias'] >campaña_mas_larga[-1]:
+        campaña_mas_larga= (campaña['nombre'],campaña['duracion_dias'])
+print (campaña_mas_larga)

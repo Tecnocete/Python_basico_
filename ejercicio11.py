@@ -71,15 +71,28 @@ lista_campañas = [
     }
 ]
 
+# Nuevo diccionario de campaña
+nueva_campaña = {
+    'nombre': 'Oferta de Verano',
+    'presupuesto': 0,
+    'inicio': '2024-06-01',
+    'fin': '2024-08-31',
+    'medios': ['Redes Sociales', 'Publicidad en línea'],
+    'segmentos_objetivo': ['Familias', 'Jóvenes'],
+    'personas_alcanzadas': "0",   
+}
+
+lista_campañas.append(nueva_campaña)
+
 '''
-### Ejercicio 8:
+### Ejercicio 11:
 ### Descripción del ejercicio:
-Nos piden calcular la duración en días de cada campaña publicitaria del año pasado:
+
+Queremos asegurarnos de que el valor de `personas_alcanzadas` en cada 
+campaña sea un número válido para poder realizar cálculos numéricos con él.
 '''
-from datetime import datetime
 for campaña in lista_campañas:
-    fecha_inicio = datetime.strptime(campaña['inicio'], '%Y-%m-%d')
-    fecha_fin = datetime.strptime(campaña['fin'], '%Y-%m-%d')
-    campaña['duracion_dias'] = (fecha_fin - fecha_inicio).days
-    print (f"La campaña : {campaña['nombre']} duró  {campaña['duracion_dias']} días")
-    
+    try:
+       int(campaña['personas_alcanzadas'])
+    except ValueError:
+        print(f"En la campaña {campaña['nombre']} el valor de personas_alcanzadas: {campaña['personas_alcanzadas']} no es válido")
